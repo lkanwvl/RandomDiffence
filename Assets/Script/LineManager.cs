@@ -5,13 +5,13 @@ using UnityEngine;
 public class LineManager : MonoBehaviour
 {
     [SerializeField] List<Transform> listLineCornor;//0 => 1 => 2 => 3 =>0
-    public static LineManager instance;
+    public static LineManager Instance;
 
     private void Awake()
     {
-        if(instance == null)
+        if(Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -27,5 +27,10 @@ public class LineManager : MonoBehaviour
             index = 0;
         }
         return listLineCornor[index];
+    }
+
+    public Transform GetFirstTarget()
+    {
+        return listLineCornor[0];
     }
 }

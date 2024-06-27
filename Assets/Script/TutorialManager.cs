@@ -11,7 +11,14 @@ public class TutorialManager : MonoBehaviour
     bool timeNumsHas;
     [SerializeField] GameObject goldMix;
     bool goldMixHas;
+    [SerializeField] GameObject TutorialUi;
 
+    [Header("<color=red>利</color> 包访")]
+    [SerializeField] GameObject enemy;
+    [SerializeField] Transform spawnPoint;
+    float time = 1;
+    int enemySpawnNumber;
+    [SerializeField] int maxEnemySpawnNumber;
 
     private void Awake()
     {
@@ -29,17 +36,12 @@ public class TutorialManager : MonoBehaviour
         }
         timeNumsHas = false;
         goldMixHas = false;
-    }
-
-    void Start()
-    {
-        
+        TutorialUi.SetActive(true);
     }
 
     void Update()
     {
         tutorialClicker();
-        spawnEnemy();
     }
     
 
@@ -58,31 +60,22 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-
-    [SerializeField] GameObject enemy;
-    [SerializeField] Transform spawnPoint;
     private void spawnEnemy()
     {
-        float time = 1;
+        if (enemySpawnNumber == maxEnemySpawnNumber) return;
         time -= Time.deltaTime;
         if(time <= 0)
         {
-            Instantiate(enemy, spawnPoint);
-        }
-        if(time <= 0)
-        {
+            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
             time = 1;
+            enemySpawnNumber++;
         }
     }
-    //[SerializeField] float enemySpeed = 5f;
-    //Vector3 moveDir;
-    //private void enemyMove()
-    //{
-    //    moveDir.y = enemySpeed * Time.deltaTime;
-    //    //enemy.transform.position += moveDir;
-    //    //if(enemy.transform.position.y >= )
 
-    //    enemy.transform.position = Vector3.MoveTowards(transform.position, 格利瘤, 加档);
-    //    if(Vector3.Distance(enemy.transform.position, 格利瘤) == 0)
-    //}
+    private void roundStart()
+    {
+        enemySpawnNumber = 0;
+    }
+
+
 }
