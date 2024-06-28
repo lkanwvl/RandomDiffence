@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemySpeed = 5f;
+    [SerializeField] int maxEnemyHp = 5;
+
 
     Transform trsTarget;
     LineManager lineManager;
@@ -28,6 +30,11 @@ public class Enemy : MonoBehaviour
         {
             trsTarget = lineManager.GetNextTarget(trsTarget);
         }
+    }
+
+    private void enemyHp()
+    {
+
     }
 
 }
