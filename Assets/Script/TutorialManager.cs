@@ -16,7 +16,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject TutorialUi;
     bool round = false;
     bool tutorialDone;
-    [SerializeField] float gameTime = 45.2f;
+    [SerializeField] float gameTime = 45f;
     [SerializeField] float puaseTime = 15f;
 
     [Header("<color=red>ภ๛</color> ฐüทร")]
@@ -88,28 +88,45 @@ public class TutorialManager : MonoBehaviour
 
     private void timer()
     {
-        if(round == true)
+        if (round == true)
         {
-            float gameTimer = gameTime;
-            gameTimer -= Time.deltaTime;
-            timerText.text = Mathf.FloorToInt(gameTimer).ToString();
-            if(gameTime <= 0)
+            //float gameTimer = gameTime;
+            //gameTime -= Time.deltaTime;
+            //timerText.text = Mathf.FloorToInt(gameTime).ToString();
+            //if(gameTime <= 0)
+            //{
+            //    round = false;
+            //    gameTime = gameTimer;
+            //}
+            int check = Mathf.FloorToInt(gameTime);
+            for (int i = Mathf.FloorToInt(gameTime); i <= 0; i--)
             {
-                gameTimer = gameTime;
+                timerText.text = i.ToString();
+                check -= 1;
+            }
+            if(check == 0)
+            {
                 round = false;
-                
             }
         }
         else if (round == false)
         {
-            float puaseTimer = puaseTime;
-            puaseTimer -= Time.deltaTime;
-            timerText.text = Mathf.FloorToInt(puaseTimer).ToString();
-            if (puaseTimer <= 0)
+            //float puaseTimer = puaseTime;
+            //puaseTime -= Time.deltaTime;
+            //timerText.text = Mathf.FloorToInt(puaseTime).ToString();
+            //if (puaseTime <= 0)
+            //{
+            //    round = true;
+            //    puaseTime = puaseTimer;
+            //}
+            
+            for (int i = Mathf.FloorToInt(puaseTime); i <= 0; i--)
             {
-                puaseTimer = puaseTime;
-                round = true;
+                timerText.text = i.ToString();
+                
             }
+            round = true;
+            
         }
     }
 
