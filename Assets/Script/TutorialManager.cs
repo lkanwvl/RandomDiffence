@@ -18,6 +18,8 @@ public class TutorialManager : MonoBehaviour
     bool tutorialDone;
     [SerializeField] float gameTime = 45f;
     [SerializeField] float puaseTime = 15f;
+    [SerializeField] TMP_Text goldText;
+    int getGold;
 
     [Header("<color=red>ภ๛</color> ฐüทร")]
     [SerializeField] GameObject enemy;
@@ -78,7 +80,7 @@ public class TutorialManager : MonoBehaviour
         {
             timer();
         }
-        
+        goldText.text = getGold.ToString();
     }
 
     private void enemyCount()
@@ -90,47 +92,44 @@ public class TutorialManager : MonoBehaviour
     {
         if (round == true)
         {
-            //float gameTimer = gameTime;
-            //gameTime -= Time.deltaTime;
-            //timerText.text = Mathf.FloorToInt(gameTime).ToString();
-            //if(gameTime <= 0)
-            //{
-            //    round = false;
-            //    gameTime = gameTimer;
-            //}
-            int check = Mathf.FloorToInt(gameTime);
-            for (int i = Mathf.FloorToInt(gameTime); i <= 0; i--)
-            {
-                timerText.text = i.ToString();
-                check -= 1;
-            }
-            if(check == 0)
+            gameTime -= Time.deltaTime;
+            timerText.text = Mathf.FloorToInt(gameTime).ToString();
+            if (gameTime <= 0)
             {
                 round = false;
+                gameTime = 45;
             }
+
+
+            //int check = Mathf.FloorToInt(gameTime);
+            //for (int i = Mathf.FloorToInt(gameTime); i <= 0; i--)
+            //{
+            //    timerText.text = i.ToString();
+            //    check -= 1;
+            //}
+            //if(check == 0)
+            //{
+            //    round = false;
+            //}
         }
         else if (round == false)
         {
-            //float puaseTimer = puaseTime;
-            //puaseTime -= Time.deltaTime;
-            //timerText.text = Mathf.FloorToInt(puaseTime).ToString();
-            //if (puaseTime <= 0)
-            //{
-            //    round = true;
-            //    puaseTime = puaseTimer;
-            //}
-            
-            for (int i = Mathf.FloorToInt(puaseTime); i <= 0; i--)
+            puaseTime -= Time.deltaTime;
+            timerText.text = Mathf.FloorToInt(puaseTime).ToString();
+            if (puaseTime <= 0)
             {
-                timerText.text = i.ToString();
-                
+                round = true;
+                puaseTime = 15;
             }
-            round = true;
-            
+
+
         }
     }
 
-
+    public void Kill()
+    {
+        getGold += 2;
+    }
 
     private void tutorialClicker()
     {
