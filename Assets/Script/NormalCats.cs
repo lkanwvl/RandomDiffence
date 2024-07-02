@@ -7,15 +7,24 @@ public class NormalCats : MonoBehaviour
     [SerializeField] GameObject ammo;
     [SerializeField] float shootCoolDownOrigin = 0.5f;
     [SerializeField] float shootCoolDown = 0.5f;
+    GameObject goEnemy;
     private void Awake()
     {
         
     }
 
+    private void Start()
+    {
+    }
 
     private void Update()
     {
-        shoot();
+        goEnemy = GameObject.FindWithTag("Enemy");
+
+        if (goEnemy != null)
+        {
+            shoot();
+        }
     }
 
     private void shoot()

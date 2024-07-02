@@ -15,15 +15,16 @@ public class Ammo : MonoBehaviour
 
     void Update()
     {
+
         transform.position += transform.up * Time.deltaTime * ammoSpeed;
 
         float angle = Quaternion.FromToRotation(Vector3.up, transform.position - goEnemy.transform.position).eulerAngles.z;
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
 
-        if(goEnemy == null)
-        {
-            Destroy(gameObject);
-        }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
