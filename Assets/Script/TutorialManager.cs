@@ -20,6 +20,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] float puaseTime = 15f;
     [SerializeField] TMP_Text goldText;
     int getGold;
+    bool pick = false;
 
     [Header("<color=red>적</color> 관련")]
     [SerializeField] GameObject enemy;
@@ -33,10 +34,15 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] List<Button> listTokkenButton;
     [SerializeField] List<TMP_Text> listTokkenText;
     List<int> listTokken = new List<int>();
+    [SerializeField] List<GameObject> listTokkenLocation;
+    int tokkenLocation = 0;
 
     [Header("튜토리얼 관련")]
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text enemyNumsText;
+
+    [Header("<color=yellow>타워</color> 관련")]
+    [SerializeField] GameObject aTurret;
 
     private void Awake()
     {
@@ -57,6 +63,31 @@ public class TutorialManager : MonoBehaviour
         TutorialUi.SetActive(true);
         round = false; 
         TokkenSetup();
+        tokkenButton();
+    }
+
+    private void tokkenButton()
+    {
+        listTokkenButton[0].onClick.AddListener(() => spawnTokken(0));
+        listTokkenButton[1].onClick.AddListener(() => spawnTokken(1));
+        listTokkenButton[2].onClick.AddListener(() => spawnTokken(2));
+        listTokkenButton[3].onClick.AddListener(() => spawnTokken(3));
+        listTokkenButton[4].onClick.AddListener(() => spawnTokken(4));
+        listTokkenButton[5].onClick.AddListener(() => spawnTokken(5));
+        listTokkenButton[6].onClick.AddListener(() => spawnTokken(6));
+        listTokkenButton[7].onClick.AddListener(() => spawnTokken(7));
+    }
+
+    private void spawnTokken(int _value)
+    {
+        if (listTokken[_value] > 0)
+        {
+            Instantiate(aTurret, listTokkenLocation[tokkenLocation].transform.position
+                /*여기에 findChildren 사용해서 네모의 자식으로 넣어보기*/
+                  , Quaternion.identity);
+            tokkenLocation++;
+            listTokken[_value] -= 1;
+        }
     }
 
     private void TokkenSetup()
@@ -99,18 +130,6 @@ public class TutorialManager : MonoBehaviour
                 round = false;
                 gameTime = 45;
             }
-
-
-            //int check = Mathf.FloorToInt(gameTime);
-            //for (int i = Mathf.FloorToInt(gameTime); i <= 0; i--)
-            //{
-            //    timerText.text = i.ToString();
-            //    check -= 1;
-            //}
-            //if(check == 0)
-            //{
-            //    round = false;
-            //}
         }
         else if (round == false)
         {
@@ -119,6 +138,7 @@ public class TutorialManager : MonoBehaviour
             if (puaseTime <= 0)
             {
                 round = true;
+                pick = false;
                 puaseTime = 15;
             }
 
@@ -156,21 +176,22 @@ public class TutorialManager : MonoBehaviour
 
 
 
-
+    
     private void roundStart()
     {
-        bool pick = false;
+        round = false;
         if (round == false && pick == false)
         {
             for(int i = 0; i < 2; i++)
             {
-                int index = Random.Range(0, 7);
+                int index = Random.Range(0, 8);
                 int a = listTokken[index];
                 listTokken[index] = a + 1;
                 Debug.Log($"{index}번째 토큰의 갯수 = {listTokken[index]}");
             }
         }
         pick = true;
+        round = true;
         enemySpawnNumber = 0;
         spawnEnemy();
     }

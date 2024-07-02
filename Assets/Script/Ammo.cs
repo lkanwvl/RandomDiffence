@@ -7,16 +7,24 @@ public class Ammo : MonoBehaviour
     [SerializeField] float ammoSpeed = 5.0f;
     GameObject goEnemy;
 
-
     private void Start()
     {
-        goEnemy = GameObject.FindWithTag("Enemy");
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if( collision.tag == Tool.GetGameTag(GameTag.Enemy))
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
+        goEnemy = GameObject.FindWithTag("Enemy");
 
-        transform.position += transform.up * Time.deltaTime * ammoSpeed;
+        transform.position -= transform.up * Time.deltaTime * ammoSpeed;
 
         float angle = Quaternion.FromToRotation(Vector3.up, transform.position - goEnemy.transform.position).eulerAngles.z;
 

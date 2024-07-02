@@ -6,10 +6,19 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemySpeed = 5f;
     [SerializeField] int maxEnemyHp = 5;
-
+    float enemyHp = 5f;
+    [SerializeField] float bulletDamage = 1f;
 
     Transform trsTarget;
     LineManager lineManager;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == Tool.GetGameTag(GameTag.Ammo))
+        {
+            enemyHp -= bulletDamage;
+        }
+    }
 
     private void Start()
     {
@@ -20,6 +29,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         enemyMove();
+        if(enemyHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void enemyMove()
@@ -30,11 +43,6 @@ public class Enemy : MonoBehaviour
         {
             trsTarget = lineManager.GetNextTarget(trsTarget);
         }
-    }
-
-    private void enemyHp()
-    {
-
     }
 
 }

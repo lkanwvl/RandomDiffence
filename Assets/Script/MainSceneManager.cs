@@ -25,7 +25,7 @@ public class MainSceneManager : MonoBehaviour
     private void initButton()
     {
         ListBtns[0].onClick.AddListener(onStart);
-        ListBtns[1].onClick.AddListener(() => onExit());
+        ListBtns[1].onClick.AddListener(onExit);
     }
 
     private void onStart()
