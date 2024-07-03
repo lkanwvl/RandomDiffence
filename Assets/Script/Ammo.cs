@@ -25,10 +25,12 @@ public class Ammo : MonoBehaviour
         goEnemy = GameObject.FindWithTag("Enemy");
 
         transform.position -= transform.up * Time.deltaTime * ammoSpeed;
+        if( goEnemy != null )
+        {
+            float angle = Quaternion.FromToRotation(Vector3.up, transform.position - goEnemy.transform.position).eulerAngles.z;
 
-        float angle = Quaternion.FromToRotation(Vector3.up, transform.position - goEnemy.transform.position).eulerAngles.z;
-
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     private void OnBecameInvisible()

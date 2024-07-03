@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         if(enemyHp <= 0)
         {
             Destroy(gameObject);
+            TutorialManager.instance.KillEnemy();
         }
     }
 

@@ -34,12 +34,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] List<Button> listTokkenButton;
     [SerializeField] List<TMP_Text> listTokkenText;
     List<int> listTokken = new List<int>();
-    [SerializeField] List<GameObject> listTokkenLocation;
+    [SerializeField] List<Transform> listTokkenLocation;
     int tokkenLocation = 0;
 
     [Header("튜토리얼 관련")]
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text enemyNumsText;
+    int roundCount = 1;
 
     [Header("<color=yellow>타워</color> 관련")]
     [SerializeField] GameObject aTurret;
@@ -63,31 +64,62 @@ public class TutorialManager : MonoBehaviour
         TutorialUi.SetActive(true);
         round = false; 
         TokkenSetup();
-        tokkenButton();
+        
+    }
+
+    private void Start()
+    {
+        //Transform trsSlotManager = GameObject.Find("UiObjact/SlotManager").transform;
+        //int count = trsSlotManager.childCount;
+        //for (int iNum = 0; iNum < count; ++iNum)
+        //{
+        //    listTokkenLocation2.Add(trsSlotManager.GetChild(iNum));
+        //}
     }
 
     private void tokkenButton()
     {
-        listTokkenButton[0].onClick.AddListener(() => spawnTokken(0));
-        listTokkenButton[1].onClick.AddListener(() => spawnTokken(1));
-        listTokkenButton[2].onClick.AddListener(() => spawnTokken(2));
-        listTokkenButton[3].onClick.AddListener(() => spawnTokken(3));
-        listTokkenButton[4].onClick.AddListener(() => spawnTokken(4));
-        listTokkenButton[5].onClick.AddListener(() => spawnTokken(5));
-        listTokkenButton[6].onClick.AddListener(() => spawnTokken(6));
-        listTokkenButton[7].onClick.AddListener(() => spawnTokken(7));
+        //listTokkenButton[0].onClick.AddListener(() => spawnTokken(0));
+        //listTokkenButton[1].onClick.AddListener(() => spawnTokken(1));
+        //listTokkenButton[2].onClick.AddListener(() => spawnTokken(2));
+        //listTokkenButton[3].onClick.AddListener(() => spawnTokken(3));
+        //listTokkenButton[4].onClick.AddListener(() => spawnTokken(4));
+        //listTokkenButton[5].onClick.AddListener(() => spawnTokken(5));
+        //listTokkenButton[6].onClick.AddListener(() => spawnTokken(6));
+        //listTokkenButton[7].onClick.AddListener(() => spawnTokken(7));
+        int count = listTokkenButton.Count;
+        for (int iNum = 0; iNum < count; iNum++)
+        {
+            int tokkenNum = iNum;
+            listTokkenButton[iNum].onClick.AddListener(() => spawnTokken(tokkenNum));
+        }
     }
 
     private void spawnTokken(int _value)
     {
         if (listTokken[_value] > 0)
         {
-            Instantiate(aTurret, listTokkenLocation[tokkenLocation].transform.position
-                /*여기에 findChildren 사용해서 네모의 자식으로 넣어보기*/
-                  , Quaternion.identity);
-            tokkenLocation++;
-            listTokken[_value] -= 1;
+            int slotNum = checkEmptySlot();
+            if (slotNum != -1)
+            {
+                Instantiate(aTurret, listTokkenLocation[slotNum]);
+                listTokken[_value] -= 1;
+            }
         }
+    }
+
+    private int checkEmptySlot()
+    {
+        int count = listTokkenLocation.Count;
+        for (int i = 0; i < count; i++)
+        {
+            Transform trsList = listTokkenLocation[i];
+            if (trsList.childCount == 1)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     private void TokkenSetup()
@@ -112,6 +144,7 @@ public class TutorialManager : MonoBehaviour
             timer();
         }
         goldText.text = getGold.ToString();
+        tokkenButton();
     }
 
     private void enemyCount()
@@ -119,12 +152,17 @@ public class TutorialManager : MonoBehaviour
         enemyNumsText.text = enemyCountNums.ToString();
     }
 
+    public void KillEnemy()
+    {
+        enemyCountNums -= 1;
+    }
+
     private void timer()
     {
         if (round == true)
         {
             gameTime -= Time.deltaTime;
-            timerText.text = Mathf.FloorToInt(gameTime).ToString();
+            timerText.text = $"{Mathf.FloorToInt(gameTime)}";
             if (gameTime <= 0)
             {
                 round = false;
@@ -134,12 +172,13 @@ public class TutorialManager : MonoBehaviour
         else if (round == false)
         {
             puaseTime -= Time.deltaTime;
-            timerText.text = Mathf.FloorToInt(puaseTime).ToString();
+            timerText.text = $"{Mathf.FloorToInt(puaseTime)}";
             if (puaseTime <= 0)
             {
                 round = true;
                 pick = false;
                 puaseTime = 15;
+                roundCount++;
             }
 
 
@@ -187,7 +226,6 @@ public class TutorialManager : MonoBehaviour
                 int index = Random.Range(0, 8);
                 int a = listTokken[index];
                 listTokken[index] = a + 1;
-                Debug.Log($"{index}번째 토큰의 갯수 = {listTokken[index]}");
             }
         }
         pick = true;
@@ -216,7 +254,4 @@ public class TutorialManager : MonoBehaviour
             listTokkenText[i].text = listTokken[i].ToString();
         }
     }
-
-
-
 }

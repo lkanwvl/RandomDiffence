@@ -7756,8 +7756,8 @@ MonoBehaviour:
   timeNums: {fileID: 674723620}
   goldMix: {fileID: 332754190}
   TutorialUi: {fileID: 147819274}
-  gameTime: 10
-  puaseTime: 5
+  gameTime: 45
+  puaseTime: 15
   goldText: {fileID: 1900113992}
   enemy: {fileID: 6800324481535708195, guid: 8b4e47dc250ed394c9f517de4a9575e1, type: 3}
   spawnPoint: {fileID: 108938649}
@@ -7780,7 +7780,67 @@ MonoBehaviour:
   - {fileID: 749027355}
   - {fileID: 814436543}
   - {fileID: 376898689}
-  listTokkenLocation: []
+  listTokkenLocation:
+  - {fileID: 7609841739890473121}
+  - {fileID: 2146380960}
+  - {fileID: 176420449}
+  - {fileID: 2101468362}
+  - {fileID: 1439019056}
+  - {fileID: 617233022}
+  - {fileID: 1542821906}
+  - {fileID: 1811442325}
+  - {fileID: 138356796}
+  - {fileID: 114242044}
+  - {fileID: 1881674409}
+  - {fileID: 333320032}
+  - {fileID: 583374719}
+  - {fileID: 1643314299}
+  - {fileID: 1254435351}
+  - {fileID: 1406951136}
+  - {fileID: 220847018}
+  - {fileID: 818117624}
+  - {fileID: 166858333}
+  - {fileID: 2085904365}
+  - {fileID: 1863993784}
+  - {fileID: 1085224170}
+  - {fileID: 611984680}
+  - {fileID: 1651390079}
+  - {fileID: 300404645}
+  - {fileID: 1356238054}
+  - {fileID: 578590154}
+  - {fileID: 2125576552}
+  - {fileID: 943667699}
+  - {fileID: 2045867303}
+  - {fileID: 1669849803}
+  - {fileID: 1945544670}
+  - {fileID: 913243175}
+  - {fileID: 655863660}
+  - {fileID: 704062164}
+  - {fileID: 551333943}
+  - {fileID: 345026305}
+  - {fileID: 1633543777}
+  - {fileID: 234939467}
+  - {fileID: 118910402}
+  - {fileID: 1607814583}
+  - {fileID: 142404060}
+  - {fileID: 1785495152}
+  - {fileID: 249219118}
+  - {fileID: 1877410602}
+  - {fileID: 1978855426}
+  - {fileID: 209524205}
+  - {fileID: 965413603}
+  - {fileID: 1553515253}
+  - {fileID: 1373962849}
+  - {fileID: 1453091829}
+  - {fileID: 945534385}
+  - {fileID: 203434515}
+  - {fileID: 17882571}
+  - {fileID: 241961152}
+  - {fileID: 922774008}
+  - {fileID: 1869367857}
+  - {fileID: 1972326288}
+  - {fileID: 314925595}
+  - {fileID: 1961204273}
   timerText: {fileID: 1087230917}
   enemyNumsText: {fileID: 1875712470}
   aTurret: {fileID: 1022697346284542678, guid: 791994653558e19408af8692e35c9711, type: 3}
