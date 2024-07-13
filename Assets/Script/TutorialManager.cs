@@ -40,10 +40,10 @@ public class TutorialManager : MonoBehaviour
     [Header("튜토리얼 관련")]
     [SerializeField] TMP_Text timerText;
     [SerializeField] TMP_Text enemyNumsText;
-    int roundCount = 1;
+    public int roundCount = 0;
 
     [Header("<color=yellow>타워</color> 관련")]
-    [SerializeField] GameObject aTurret;
+    [SerializeField] List<GameObject> listTower; 
 
     private void Awake()
     {
@@ -102,7 +102,7 @@ public class TutorialManager : MonoBehaviour
             int slotNum = checkEmptySlot();
             if (slotNum != -1)
             {
-                Instantiate(aTurret, listTokkenLocation[slotNum]);
+                Instantiate(listTower[_value], listTokkenLocation[slotNum]);
                 listTokken[_value] -= 1;
             }
         }

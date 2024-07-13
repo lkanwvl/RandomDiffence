@@ -7843,7 +7843,16 @@ MonoBehaviour:
   - {fileID: 1961204273}
   timerText: {fileID: 1087230917}
   enemyNumsText: {fileID: 1875712470}
-  aTurret: {fileID: 1022697346284542678, guid: 791994653558e19408af8692e35c9711, type: 3}
+  roundCount: 1
+  listTower:
+  - {fileID: 1022697346284542678, guid: 791994653558e19408af8692e35c9711, type: 3}
+  - {fileID: 1022697346284542678, guid: 64ee62a1daaf8fd4093b783359a4ab00, type: 3}
+  - {fileID: 1022697346284542678, guid: 9d7c0d00a80d99f4a915e46c86e7efc9, type: 3}
+  - {fileID: 1022697346284542678, guid: 030cbfcfd5faa6945847fbe5ed57ed1e, type: 3}
+  - {fileID: 1022697346284542678, guid: e74ad5c083f78fc4990a634920503079, type: 3}
+  - {fileID: 1022697346284542678, guid: 3b0e58739765c7e4cb81cf0adf25e6fa, type: 3}
+  - {fileID: 1022697346284542678, guid: 54e202ccbf02b0343994200b6d05e723, type: 3}
+  - {fileID: 1022697346284542678, guid: 468f3ee0b69a2f24badf6fb90cb30bb4, type: 3}
 --- !u!4 &2064345637
 Transform:
   m_ObjectHideFlags: 0

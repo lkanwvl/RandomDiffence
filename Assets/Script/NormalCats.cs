@@ -4,17 +4,49 @@ using UnityEngine;
 
 public class NormalCats : MonoBehaviour
 {
+    public class cTower
+    {
+        public string name;
+        public int damage;
+        public float attackSpeed;
+        public cPower power;
+        public List<string> mix;
+    }
+     
+    public class cPower
+    {
+        public enumPower power;
+        public enumPowerType powerType;
+        public float value;
+    }
+
+    public enum enumPowerType
+    {
+        Percent,
+        Sec,
+    }
+
+    public enum enumPower
+    {
+        multiple,
+        slow,
+        stun,
+        damageUp,
+        buff,
+    }
+
     [SerializeField] GameObject ammo;
-    [SerializeField] float shootCoolDownOrigin = 0.5f;
-    [SerializeField] float shootCoolDown = 0.5f;
+    [SerializeField] float shootCoolDown = 1f;
     GameObject goEnemy;
+    float CoolResetNum = 0;
     private void Awake()
     {
-        
+
     }
 
     private void Start()
     {
+        CoolResetNum = shootCoolDown;
     }
 
     private void Update()
@@ -30,10 +62,10 @@ public class NormalCats : MonoBehaviour
     private void shoot()
     {
         shootCoolDown -= Time.deltaTime;
-        if(shootCoolDown <= 0)
+        if (shootCoolDown <= 0)
         {
             Instantiate(ammo, transform.position, Quaternion.identity);
-            shootCoolDown = shootCoolDownOrigin;
+            shootCoolDown = CoolResetNum;
         }
     }
 
