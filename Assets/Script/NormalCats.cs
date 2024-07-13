@@ -39,20 +39,16 @@ public class NormalCats : MonoBehaviour
     [SerializeField] float shootCoolDown = 1f;
     GameObject goEnemy;
     float CoolResetNum = 0;
-    private void Awake()
-    {
-
-    }
 
     private void Start()
     {
         CoolResetNum = shootCoolDown;
+
     }
 
     private void Update()
     {
         goEnemy = GameObject.FindWithTag("Enemy");
-
         if (goEnemy != null)
         {
             shoot();

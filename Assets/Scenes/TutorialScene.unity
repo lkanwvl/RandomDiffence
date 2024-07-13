@@ -4153,8 +4153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -694.95, y: 395}
-  m_SizeDelta: {x: 54.2952, y: 50}
+  m_AnchoredPosition: {x: -706, y: 395}
+  m_SizeDelta: {x: 117.8047, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087230917
 MonoBehaviour:
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 99
+  m_text: 99 / 99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7762,6 +7762,7 @@ MonoBehaviour:
   enemy: {fileID: 6800324481535708195, guid: 8b4e47dc250ed394c9f517de4a9575e1, type: 3}
   spawnPoint: {fileID: 108938649}
   maxEnemySpawnNumber: 20
+  gameOverNums: 65
   listTokkenButton:
   - {fileID: 291207109}
   - {fileID: 1464670357}

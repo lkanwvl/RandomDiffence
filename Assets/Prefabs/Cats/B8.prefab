@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1541703807632155973}
   - component: {fileID: 7189128419200441953}
   m_Layer: 0
-  m_Name: A8
+  m_Name: B8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 2365859655522615296, guid: 42d534871c2b480418e829e89f4af006, type: 3}
-  shootCoolDown: 0.5
+  shootCoolDown: 1

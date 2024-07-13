@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1541703807632155973}
   - component: {fileID: 7189128419200441953}
   m_Layer: 0
-  m_Name: A2
+  m_Name: B7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 33
-  m_Sprite: {fileID: 21300000, guid: 351f0d018822d6a4fbac97f5bef292ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 813571b29c4ef1b44a0d2b49ccb0c5ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 2365859655522615296, guid: 42d534871c2b480418e829e89f4af006, type: 3}
-  shootCoolDown: 0.5
+  shootCoolDown: 1

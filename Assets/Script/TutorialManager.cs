@@ -29,6 +29,7 @@ public class TutorialManager : MonoBehaviour
     int enemySpawnNumber;
     [SerializeField] int maxEnemySpawnNumber;
     int enemyCountNums;
+    [SerializeField] int gameOverNums;
 
     [Header("<color=blue>토큰</color> 관련")]
     [SerializeField] List<Button> listTokkenButton;
@@ -75,18 +76,11 @@ public class TutorialManager : MonoBehaviour
         //{
         //    listTokkenLocation2.Add(trsSlotManager.GetChild(iNum));
         //}
+        tokkenButton();
     }
 
     private void tokkenButton()
     {
-        //listTokkenButton[0].onClick.AddListener(() => spawnTokken(0));
-        //listTokkenButton[1].onClick.AddListener(() => spawnTokken(1));
-        //listTokkenButton[2].onClick.AddListener(() => spawnTokken(2));
-        //listTokkenButton[3].onClick.AddListener(() => spawnTokken(3));
-        //listTokkenButton[4].onClick.AddListener(() => spawnTokken(4));
-        //listTokkenButton[5].onClick.AddListener(() => spawnTokken(5));
-        //listTokkenButton[6].onClick.AddListener(() => spawnTokken(6));
-        //listTokkenButton[7].onClick.AddListener(() => spawnTokken(7));
         int count = listTokkenButton.Count;
         for (int iNum = 0; iNum < count; iNum++)
         {
@@ -144,7 +138,14 @@ public class TutorialManager : MonoBehaviour
             timer();
         }
         goldText.text = getGold.ToString();
-        tokkenButton();
+        if(enemyCountNums >= gameOverNums)
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+        }
     }
 
     private void enemyCount()
@@ -162,7 +163,7 @@ public class TutorialManager : MonoBehaviour
         if (round == true)
         {
             gameTime -= Time.deltaTime;
-            timerText.text = $"{Mathf.FloorToInt(gameTime)}";
+            timerText.text = $"{Mathf.FloorToInt(gameTime)} / {roundCount}";
             if (gameTime <= 0)
             {
                 round = false;
@@ -172,7 +173,7 @@ public class TutorialManager : MonoBehaviour
         else if (round == false)
         {
             puaseTime -= Time.deltaTime;
-            timerText.text = $"{Mathf.FloorToInt(puaseTime)}";
+            timerText.text = $"{Mathf.FloorToInt(puaseTime)} / {roundCount}";
             if (puaseTime <= 0)
             {
                 round = true;
