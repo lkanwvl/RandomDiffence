@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     float maxEnemyHp;
     float enemyHp;
     string turretName;
-    string beforeName;
+    List<string> listBeforeName = new List<string>();
     Transform trsTarget;
     LineManager lineManager;
 
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         {
             Ammo ammo = collision.GetComponent<Ammo>();
             
-            enemyHp -= ammo.GetDamage();
+            enemyHp -= ammo.GetDamage() * ammo.GetAttack();
             if(nameCheck(ammo.GetName()) == false)
             {
                 return;
@@ -41,12 +41,16 @@ public class Enemy : MonoBehaviour
     
     private bool nameCheck(string _name)
     {
-        beforeName = turretName;
         turretName = _name;
-        if(beforeName == turretName)
+        int count = listBeforeName.Count;
+        for(int iNum = count; iNum > 0; --iNum)
         {
-            return false;
+            if(listBeforeName[iNum] == turretName)
+            {
+                return false;
+            }
         }
+        listBeforeName.Add(turretName);
         return true;
     }
 

@@ -16,6 +16,11 @@ public class NormalCats : MonoBehaviour
     float CoolResetNum = 0;
     JsonLoader.cTower myTowerData;
     float slowValue = 0f;
+    float damageUp;
+    float fullPur;
+    float nowPur;
+
+
     private void Start()
     {
         myTowerData = JsonLoader.Instance.GetTowerData(turretName);
@@ -58,15 +63,15 @@ public class NormalCats : MonoBehaviour
         }
         else if(power == "damageUp")
         {
-            
+            damageUp = _value;
         }
         else if(power == "fullHpDamage")
         {
-
+            fullPur = _value;//여기부터
         }
-        else if (power == "nowHpDanage")
+        else if (power == "nowHpDamage")
         {
-
+            nowPur = _value;
         }
         else if (power == "stun")
         {
@@ -88,6 +93,7 @@ public class NormalCats : MonoBehaviour
             Ammo goSc = go.GetComponent<Ammo>();
             goSc.SetDamage(myTowerData.damage);
             goSc.SetSlow(slowValue, myTowerData.name);
+            goSc.SetAttack(damageUp);
             shootCoolDown = CoolResetNum - buffTime;
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
@@ -11,6 +12,8 @@ public class Ammo : MonoBehaviour
     bool slowed = false;
     string slowName;
     string beforeName;
+    private float attack;
+
     private void Start()
     {
 
@@ -50,6 +53,16 @@ public class Ammo : MonoBehaviour
     public float GetDamage()
     {
         return damage;
+    }
+
+    public void SetAttack(float _attack)
+    {
+        attack = _attack;
+    }
+
+    public float GetAttack()
+    {
+        return attack + 1;
     }
 
     public void SetSlow(float _slow, string _name)

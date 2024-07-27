@@ -30,7 +30,7 @@ public class JsonLoader : MonoBehaviour
         attackSpeed,
         damageUp,
         fullHpDamage,
-        nowHpDanage,
+        nowHpDamage,
         stun,
         multiple,
     }
