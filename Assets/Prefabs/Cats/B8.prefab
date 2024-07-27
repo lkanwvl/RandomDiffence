@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 33
-  m_Sprite: {fileID: 21300000, guid: 885027a95a7f92a4e97c92a4dc8d7f73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7befba7c2dcefc64eb7584f1a7d25790, type: 3}
   m_Color: {r: 1, g: 0, b: 0.90058327, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 2365859655522615296, guid: 42d534871c2b480418e829e89f4af006, type: 3}
-  shootCoolDown: 1
+  attackSpeed: 1

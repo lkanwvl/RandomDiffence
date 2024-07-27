@@ -16,38 +16,34 @@ public class NormalCats : MonoBehaviour
     public class cPower
     {
         public enumPower power;
-        public enumPowerType powerType;
+        public float powerType;
         public float value;
     }
-
-    public enum enumPowerType
-    {
-        Percent,
-        Sec,
-    }
-
+        
     public enum enumPower
     {
-        multiple,
         slow,
-        stun,
+        attackSpeed,
         damageUp,
-        buff,
+        fullHpDamage,
+        nowHpDanage,
+        stun,
+        multiple,
     }
 
     [SerializeField] GameObject ammo;
-    [SerializeField] float shootCoolDown = 1f;
+    [SerializeField, Tooltip("°ø¼Ó")] float attackSpeed = 2f;
+    private float shootCoolDown;
     GameObject goEnemy;
     float CoolResetNum = 0;
 
     private void Start()
     {
-        CoolResetNum = shootCoolDown;
-
+        shootCoolDown = 1 / attackSpeed;
     }
-
     private void Update()
     {
+        CoolResetNum = 1 / attackSpeed;
         goEnemy = GameObject.FindWithTag("Enemy");
         if (goEnemy != null)
         {
@@ -55,6 +51,8 @@ public class NormalCats : MonoBehaviour
         }
     }
 
+    
+    
     private void shoot()
     {
         shootCoolDown -= Time.deltaTime;

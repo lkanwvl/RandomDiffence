@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 2365859655522615296, guid: 42d534871c2b480418e829e89f4af006, type: 3}
-  shootCoolDown: 1
+  attackSpeed: 1.5

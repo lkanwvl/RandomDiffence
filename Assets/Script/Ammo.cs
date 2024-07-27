@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] float ammoSpeed = 5.0f;
+    [SerializeField, Tooltip("Åº¼Ó")] float ammoSpeed = 5.0f;
     GameObject goEnemy;
 
     private void Start()
