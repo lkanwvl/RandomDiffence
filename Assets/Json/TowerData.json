@@ -1,0 +1,33 @@
+[
+    {
+        "name": "A1",
+        "damage": 48,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A2",
+        "damage": 50,
+        "attackSpeed": 0.5,
+        "listPower": [
+            {
+                "power": 6,
+                "value": 3.0
+            }
+        ],
+        "listMix": [ "A1", "A2" ]
+    },
+    {
+        "name": "A3",
+        "damage": 50,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 0,
+                "value": 0.15
+            }
+        ],
+        "listMix": [ "A1", "A2" ]
+    }
+]

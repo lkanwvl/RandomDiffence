@@ -6,7 +6,11 @@ public class Ammo : MonoBehaviour
 {
     [SerializeField, Tooltip("Åº¼Ó")] float ammoSpeed = 5.0f;
     GameObject goEnemy;
-
+    private float damage;
+    private float slow;
+    bool slowed = false;
+    string slowName;
+    string beforeName;
     private void Start()
     {
 
@@ -36,5 +40,31 @@ public class Ammo : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    public void SetDamage(float _damage)
+    {
+        damage = _damage; 
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public void SetSlow(float _slow, string _name)
+    {
+        slow = _slow;
+        slowName = _name;
+    }
+
+    public string GetName()
+    {
+        return slowName;
+    }
+
+    public float GetSlow()
+    {
+        return slow;
     }
 }
