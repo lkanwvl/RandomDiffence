@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Enemy;
 
@@ -19,7 +20,8 @@ public class NormalCats : MonoBehaviour
     float damageUp;
     float fullPur;
     float nowPur;
-
+    float stun;
+    int multiple;
 
     private void Start()
     {
@@ -67,7 +69,7 @@ public class NormalCats : MonoBehaviour
         }
         else if(power == "fullHpDamage")
         {
-            fullPur = _value;//여기부터
+            fullPur = _value;
         }
         else if (power == "nowHpDamage")
         {
@@ -75,14 +77,23 @@ public class NormalCats : MonoBehaviour
         }
         else if (power == "stun")
         {
-
+            stun = _value;
         }
         else if (power == "multiple")
         {
-
+            multiple = (int)_value;
         }
     }
-
+    
+    private void multiShoot(int _value)
+    {
+        switch (_value)
+        {
+            case 3:
+                //Instantiate(ammo, transform.position, Quaternion.Angle(-15, 15); 여기부터
+                return;
+        }
+    }
         
     private void shoot()
     {
@@ -94,6 +105,8 @@ public class NormalCats : MonoBehaviour
             goSc.SetDamage(myTowerData.damage);
             goSc.SetSlow(slowValue, myTowerData.name);
             goSc.SetAttack(damageUp);
+            goSc.SetFull(fullPur);
+            goSc.SetNow(nowPur);
             shootCoolDown = CoolResetNum - buffTime;
         }
     }

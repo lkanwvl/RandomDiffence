@@ -13,6 +13,8 @@ public class Ammo : MonoBehaviour
     string slowName;
     string beforeName;
     private float attack;
+    float stun;
+    int multi;
 
     private void Start()
     {
@@ -43,6 +45,36 @@ public class Ammo : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+    }
+
+    public void SetFull(float _damage)
+    {
+        damage = _damage;
+    }
+
+    public float GetFull()
+    {
+        return damage;
+    }
+
+    public void SetStun(float _stun)
+    {
+        stun = _stun;
+    }
+
+    public float GetStun()
+    {
+        return stun;
+    }
+
+    public void SetNow(float _damage)
+    {
+        damage = _damage;
+    }
+
+    public float GetNow()
+    {
+        return damage;
     }
 
     public void SetDamage(float _damage)

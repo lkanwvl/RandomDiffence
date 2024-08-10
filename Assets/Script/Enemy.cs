@@ -18,8 +18,11 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemySpeed = 5f;
     float maxEnemyHp;
-    float enemyHp;
+    double enemyHp;
+    float stunTime;
     string turretName;
+    float stun;
+
     List<string> listBeforeName = new List<string>();
     Transform trsTarget;
     LineManager lineManager;
@@ -28,14 +31,25 @@ public class Enemy : MonoBehaviour
     {
         if(collision.tag == Tool.GetGameTag(GameTag.Ammo))
         {
+            
             Ammo ammo = collision.GetComponent<Ammo>();
             
-            enemyHp -= ammo.GetDamage() * ammo.GetAttack();
+            enemyHp -= ammo.GetDamage() * ammo.GetAttack() + (ammo.GetFull() * maxEnemyHp * 0.01) +
+                (ammo.GetNow() * enemyHp * 0.01);
             if(nameCheck(ammo.GetName()) == false)
             {
                 return;
             }
-            enemySpeed -= enemySpeed * ammo.GetSlow();
+            stunTime = ammo.GetStun();
+            if(stunTime > 0)
+            {
+                stun = 0;
+            }
+            else
+            {
+                stun = 1;
+            }
+            enemySpeed -= enemySpeed * ammo.GetSlow() * stun;
         }
     }
     
@@ -75,7 +89,14 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             TutorialManager.instance.KillEnemy();
         }
+        timer(stunTime);
     }
+    private float timer(float _time)
+    {
+        _time -= Time.deltaTime;
+        return _time;
+    }
+
 
     private void enemyMove()
     {

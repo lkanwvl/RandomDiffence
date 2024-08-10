@@ -9,7 +9,57 @@
     {
         "name": "A2",
         "damage": 50,
-        "attackSpeed": 0.5,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A3",
+        "damage": 51,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A4",
+        "damage": 53,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A5",
+        "damage": 55,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A6",
+        "damage": 56,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+
+    {
+        "name": "A7",
+        "damage": 57,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "A8",
+        "damage": 58,
+        "attackSpeed": 1.0,
+        "listPower": [],
+        "listMix": []
+    },
+    {
+        "name": "B1",
+        "damage": 90,
+        "attackSpeed": 0.8,
         "listPower": [
             {
                 "power": 6,
@@ -19,8 +69,132 @@
         "listMix": [ "A1", "A2" ]
     },
     {
-        "name": "A3",
-        "damage": 50,
+        "name": "B2",
+        "damage": 75,
+        "attackSpeed": 1.5,
+        "listPower": [],
+        "listMix": [ "A1", "A3" ]
+    },
+    {
+        "name": "B3",
+        "damage": 180,
+        "attackSpeed": 0.5,
+        "listPower": [],
+        "listMix": [ "A2", "A3" ]
+    },
+    {
+        "name": "B4",
+        "damage": 105,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A4", "A5" ]
+    },
+    {
+        "name": "B5",
+        "damage": 106,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A4", "A6" ]
+    },
+    {
+        "name": "B6",
+        "damage": 107,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A5", "A6" ]
+    },
+    {
+        "name": "B7",
+        "damage": 108,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A7", "A7" ]
+    },
+    {
+        "name": "B8",
+        "damage": 109,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A7", "A8" ]
+    },
+    {
+        "name": "B9",
+        "damage": 110,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "A8", "A8" ]
+    },
+    {
+        "name": "C1",
+        "damage": 300,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 6,
+                "value": 3.0
+            }
+        ],
+        "listMix": [ "B1", "B2" ]
+    },
+    {
+        "name": "C2",
+        "damage": 200,
+        "attackSpeed": 2,
+        "listPower": [],
+        "listMix": [ "B1", "B3" ]
+    },
+    {
+        "name": "C3",
+        "damage": 500,
+        "attackSpeed": 0.8,
+        "listPower": [],
+        "listMix": [ "B2", "B3" ]
+    },
+    {
+        "name": "C4",
+        "damage": 402,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B4", "B5" ]
+    },
+    {
+        "name": "C5",
+        "damage": 403,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B4", "B6" ]
+    },
+    {
+        "name": "C6",
+        "damage": 405,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B5", "B6" ]
+    },
+    {
+        "name": "C7",
+        "damage": 408,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B7", "B8" ]
+    },
+    {
+        "name": "C8",
+        "damage": 409,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B7", "B9" ]
+    },
+    {
+        "name": "C9",
+        "damage": 410,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B8", "B9" ]
+    },
+    {
+        "name": "D1",
+        "damage": 1555,
         "attackSpeed": 1,
         "listPower": [
             {
@@ -28,6 +202,185 @@
                 "value": 0.15
             }
         ],
-        "listMix": [ "A1", "A2" ]
+        "listMix": [ "C1", "C2" ]
+    },
+    {
+        "name": "D2",
+        "damage": 1700,
+        "attackSpeed": 1.2,
+        "listPower": [
+            {
+                "power": 0,
+                "value": 0.1
+            }
+        ],
+        "listMix": [ "C1", "C3" ]
+    },
+    {
+        "name": "D3",
+        "damage": 1560,
+        "attackSpeed": 0.8,
+        "listPower": [
+            {
+                "power": 5,
+                "value": 0.3
+            }
+        ],
+        "listMix": [ "C2", "C3" ]
+    },
+    {
+        "name": "D4",
+        "damage": 1670,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 5,
+                "value": 0.2
+            }
+        ],
+        "listMix": [ "C4", "C5" ]
+    },
+    {
+        "name": "D5",
+        "damage": 1980,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "B4", "B6" ]
+    },
+    {
+        "name": "D6",
+        "damage": 2115,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "C5", "C6" ]
+    },
+    {
+        "name": "D7",
+        "damage": 2234,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "C7", "C8" ]
+    },
+    {
+        "name": "D8",
+        "damage": 2411,
+        "attackSpeed": 1,
+        "listPower": [],
+        "listMix": [ "C7", "C9" ]
+    },
+    {
+        "name": "D9",
+        "damage": 3500,
+        "attackSpeed": 0.8,
+        "listPower": [],
+        "listMix": [ "C8", "C9" ]
+    },
+    {
+        "name": "E1",
+        "damage": 8000,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 2,
+                "value": 0.3
+            }
+        ],
+        "listMix": [ "D1", "D2" ]
+    },
+    {
+        "name": "E2",
+        "damage": 9650,
+        "attackSpeed": 0.7,
+        "listPower": [
+            {
+                "power": 1,
+                "value": 1.2
+            }
+        ],
+        "listMix": [ "D1", "D3" ]
+    },
+    {
+        "name": "E3",
+        "damage": 10200,
+        "attackSpeed": 1.1,
+        "listPower": [
+            {
+                "power": 0,
+                "value": 0.2
+            }
+        ],
+        "listMix": [ "D2", "D3" ]
+    },
+    {
+        "name": "E4",
+        "damage": 11200,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 5,
+                "value": 0.7
+            }
+        ],
+        "listMix": [ "D4", "D5" ]
+    },
+    {
+        "name": "E5",
+        "damage": 10500,
+        "attackSpeed": 1.2,
+        "listPower": [
+            {
+                "power": 5,
+                "value": 1.0
+            }
+        ],
+        "listMix": [ "D4", "D6" ]
+    },
+    {
+        "name": "E6",
+        "damage": 11200,
+        "attackSpeed": 1.5,
+        "listPower": [
+            {
+                "power": 3,
+                "value": 0.08
+            }
+        ],
+        "listMix": [ "D5", "D6" ]
+    },
+    {
+        "name": "E7",
+        "damage": 12000,
+        "attackSpeed": 1,
+        "listPower": [
+            {
+                "power": 3,
+                "value": 0.1
+            }
+        ],
+        "listMix": [ "D7", "D8" ]
+    },
+    {
+        "name": "E8",
+        "damage": 11500,
+        "attackSpeed": 1.3,
+        "listPower": [
+            {
+                "power": 4,
+                "value": 0.12
+            }
+        ],
+        "listMix": [ "D7", "D9" ]
+    },
+    {
+        "name": "E9",
+        "damage": 12400,
+        "attackSpeed": 0.9,
+        "listPower": [
+            {
+                "power": 4,
+                "value": 0.15
+            }
+        ],
+        "listMix": [ "D8", "D9" ]
     }
 ]
