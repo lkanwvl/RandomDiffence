@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum TurretName
@@ -18,7 +16,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] float enemySpeed = 5f;
     float maxEnemyHp;
-    double enemyHp;
+    [SerializeField] double enemyHp;
     float stunTime;
     string turretName;
     float stun;
@@ -34,8 +32,7 @@ public class Enemy : MonoBehaviour
             
             Ammo ammo = collision.GetComponent<Ammo>();
             
-            enemyHp -= ammo.GetDamage() * ammo.GetAttack() + (ammo.GetFull() * maxEnemyHp * 0.01) +
-                (ammo.GetNow() * enemyHp * 0.01);
+            enemyHp -= ammo.GetDamage() + ammo.GetAttack(ammo.GetDamage()) + ammo.GetFull(maxEnemyHp) + ammo.GetNow(enemyHp);
             if(nameCheck(ammo.GetName()) == false)
             {
                 return;
@@ -57,7 +54,7 @@ public class Enemy : MonoBehaviour
     {
         turretName = _name;
         int count = listBeforeName.Count;
-        for(int iNum = count; iNum > 0; --iNum)
+        for(int iNum = count - 1; iNum >= 0; --iNum)
         {
             if(listBeforeName[iNum] == turretName)
             {
@@ -70,6 +67,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        listBeforeName.Clear();
         roundForEnemyHp();
         lineManager = LineManager.Instance;
         trsTarget = lineManager.GetFirstTarget();
@@ -106,6 +104,6 @@ public class Enemy : MonoBehaviour
         {
             trsTarget = lineManager.GetNextTarget(trsTarget);
         }
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
 }

@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
@@ -8,6 +6,8 @@ public class Ammo : MonoBehaviour
     [SerializeField, Tooltip("Åº¼Ó")] float ammoSpeed = 5.0f;
     GameObject goEnemy;
     private float damage;
+    private float fullDamage;
+    private float nowDamage;
     private float slow;
     bool slowed = false;
     string slowName;
@@ -47,44 +47,25 @@ public class Ammo : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SetFull(float _damage)
-    {
-        damage = _damage;
-    }
 
-    public float GetFull()
-    {
-        return damage;
-    }
 
-    public void SetStun(float _stun)
-    {
-        stun = _stun;
-    }
 
-    public float GetStun()
-    {
-        return stun;
-    }
 
-    public void SetNow(float _damage)
-    {
-        damage = _damage;
-    }
 
-    public float GetNow()
-    {
-        return damage;
-    }
 
     public void SetDamage(float _damage)
     {
         damage = _damage; 
     }
 
-    public float GetDamage()
+    public void SetFull(float _damage)
     {
-        return damage;
+        fullDamage = _damage;
+    }
+
+    public void SetNow(float _damage)
+    {
+        nowDamage = _damage;
     }
 
     public void SetAttack(float _attack)
@@ -92,9 +73,9 @@ public class Ammo : MonoBehaviour
         attack = _attack;
     }
 
-    public float GetAttack()
+    public void SetStun(float _stun)
     {
-        return attack + 1;
+        stun = _stun;
     }
 
     public void SetSlow(float _slow, string _name)
@@ -103,13 +84,44 @@ public class Ammo : MonoBehaviour
         slowName = _name;
     }
 
-    public string GetName()
+
+
+
+
+
+    public float GetDamage()
     {
-        return slowName;
+        return damage;
+    }
+
+    public float GetFull(float _value)
+    {
+        return _value * (fullDamage / 100);
+    }
+
+
+    public double GetNow(double _value)
+    {
+        return _value * (nowDamage / 100);
+    }
+
+    public float GetAttack(float _value)
+    {
+        return _value * (attack / 100);
+    }
+
+    public float GetStun()
+    {
+        return stun;
     }
 
     public float GetSlow()
     {
         return slow;
+    }
+
+    public string GetName()
+    {
+        return slowName;
     }
 }

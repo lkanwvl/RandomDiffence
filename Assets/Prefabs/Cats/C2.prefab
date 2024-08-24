@@ -97,5 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6900fd9aed0f9c3488f969ed973c3b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretName: 18
   ammo: {fileID: 2365859655522615296, guid: 42d534871c2b480418e829e89f4af006, type: 3}
   attackSpeed: 2

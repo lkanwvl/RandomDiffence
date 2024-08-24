@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using static Enemy;
 
 public class NormalCats : MonoBehaviour
 {
@@ -84,13 +80,14 @@ public class NormalCats : MonoBehaviour
             multiple = (int)_value;
         }
     }
-    
+
     private void multiShoot(int _value)
     {
         switch (_value)
         {
             case 3:
-                //Instantiate(ammo, transform.position, Quaternion.Angle(-15, 15); 여기부터
+                Instantiate(ammo, transform.position + new Vector3(1, 0, 0), Quaternion.Euler(Vector2.zero));
+                Instantiate(ammo, transform.position - new Vector3(1, 0, 0), Quaternion.Euler(Vector2.zero));
                 return;
         }
     }
@@ -98,7 +95,7 @@ public class NormalCats : MonoBehaviour
     private void shoot()
     {
         shootCoolDown -= Time.deltaTime;
-        if (shootCoolDown <= 0)
+        if (shootCoolDown <= 0 && multiple < 3)
         {
             GameObject go = Instantiate(ammo, transform.position, Quaternion.identity);
             Ammo goSc = go.GetComponent<Ammo>();
@@ -107,8 +104,22 @@ public class NormalCats : MonoBehaviour
             goSc.SetAttack(damageUp);
             goSc.SetFull(fullPur);
             goSc.SetNow(nowPur);
+            goSc.SetStun(stun);
             shootCoolDown = CoolResetNum - buffTime;
         }
-    }
+        else if (shootCoolDown <= 0 && multiple >= 3)
+        {
+            GameObject go = Instantiate(ammo, transform.position, Quaternion.identity);
+            Ammo goSc = go.GetComponent<Ammo>();
+            goSc.SetDamage(myTowerData.damage);
+            goSc.SetSlow(slowValue, myTowerData.name);
+            goSc.SetAttack(damageUp);
+            goSc.SetFull(fullPur);
+            goSc.SetNow(nowPur);
+            goSc.SetStun(stun);
+            shootCoolDown = CoolResetNum - buffTime;
+            multiShoot(multiple);
+        }
+    }//스턴 고치기
 
 }
