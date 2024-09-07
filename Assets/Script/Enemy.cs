@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] double enemyHp;
     float stunTime;
     string turretName;
-    float stun;
+    int stun;
 
     List<string> listBeforeName = new List<string>();
     Transform trsTarget;
@@ -38,15 +38,6 @@ public class Enemy : MonoBehaviour
                 return;
             }
             stunTime = ammo.GetStun();
-            if(stunTime > 0)
-            {
-                stun = 0;
-            }
-            else
-            {
-                stun = 1;
-            }
-            enemySpeed -= enemySpeed * ammo.GetSlow() * stun;
         }
     }
     
@@ -98,7 +89,20 @@ public class Enemy : MonoBehaviour
 
     private void enemyMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, trsTarget.position, enemySpeed * Time.deltaTime);
+        stunTime -= Time.deltaTime;
+        if( stunTime < 0 )
+        {
+            stunTime = 0;
+        }
+        if (stunTime > 0)
+        {
+            stun = 0;
+        }
+        else if(stunTime <= 0)
+        {
+            stun = 1;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, trsTarget.position, enemySpeed * stun * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, trsTarget.position) == 0)
         {

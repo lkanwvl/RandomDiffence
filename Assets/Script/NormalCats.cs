@@ -121,5 +121,5 @@ public class NormalCats : MonoBehaviour
             multiShoot(multiple);
         }
     }//스턴 고치기
-
+    
 }
