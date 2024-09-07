@@ -33,11 +33,15 @@ public class Enemy : MonoBehaviour
             Ammo ammo = collision.GetComponent<Ammo>();
             
             enemyHp -= ammo.GetDamage() + ammo.GetAttack(ammo.GetDamage()) + ammo.GetFull(maxEnemyHp) + ammo.GetNow(enemyHp);
+            stunTime = ammo.GetStun();
             if(nameCheck(ammo.GetName()) == false)
             {
                 return;
             }
-            stunTime = ammo.GetStun();
+        }
+        if(collision.tag == Tool.GetGameTag(GameTag.Stun))
+        {
+
         }
     }
     

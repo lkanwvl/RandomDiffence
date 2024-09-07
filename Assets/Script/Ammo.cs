@@ -15,22 +15,30 @@ public class Ammo : MonoBehaviour
     private float attack;
     float stun;
     int multi;
+    [SerializeField] GameObject stunBoom;
+    Vector3 nowP = new Vector3(0, 0, 0);
 
     private void Start()
     {
-
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if( collision.tag == Tool.GetGameTag(GameTag.Enemy))
         {
+            if(stun != 0)
+            {
+                Instantiate(stunBoom, nowP, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }
 
     void Update()
     {
+        nowP = transform.position;
+        //Debug.Log($"{nowP}");
         goEnemy = GameObject.FindWithTag("Enemy");
 
         transform.position -= transform.up * Time.deltaTime * ammoSpeed;

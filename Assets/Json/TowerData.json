@@ -1,9 +1,14 @@
 [
     {
         "name": "A1",
-        "damage": 48,
-        "attackSpeed": 1.0,
-        "listPower": [],
+        "damage": 1,
+        "attackSpeed": 2.0,
+        "listPower": [
+            {
+                "power": 5,
+                "value": 3
+            }
+        ],
         "listMix": []
     },
     {

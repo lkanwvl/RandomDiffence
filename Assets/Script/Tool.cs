@@ -12,4 +12,5 @@ public enum GameTag
 {
     Enemy,
     Ammo,
+    Stun,
 }
