@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         }
         if(collision.tag == Tool.GetGameTag(GameTag.Stun))
         {
-
+            enemySpeed = 0;
         }
     }
     

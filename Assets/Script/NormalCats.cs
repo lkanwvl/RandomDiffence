@@ -120,6 +120,6 @@ public class NormalCats : MonoBehaviour
             shootCoolDown = CoolResetNum - buffTime;
             multiShoot(multiple);
         }
-    }//스턴 고치기
+    }
     
 }
