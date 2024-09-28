@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)//ÃÑ¾Ë 
     {
-        if(collision.tag == Tool.GetGameTag(GameTag.Ammo))
+        if(collision.tag == Tool.GetGameTag(GameTag.Ammo) && collision.tag == Tool.GetGameTag(GameTag.Stun))
         {
             
             Ammo ammo = collision.GetComponent<Ammo>();
@@ -38,10 +38,6 @@ public class Enemy : MonoBehaviour
             {
                 return;
             }
-        }
-        if(collision.tag == Tool.GetGameTag(GameTag.Stun))
-        {
-            enemySpeed = 0;
         }
     }
     

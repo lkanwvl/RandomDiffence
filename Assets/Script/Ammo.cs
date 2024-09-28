@@ -29,7 +29,6 @@ public class Ammo : MonoBehaviour
         {
             if(stun != 0)
             {
-                Debug.Log($"{nowP}");
                 Instantiate(stunBoom, nowP, Quaternion.identity);
             }
             Destroy(gameObject);
@@ -38,10 +37,8 @@ public class Ammo : MonoBehaviour
 
     void Update()
     {
-        if(transform.position != null)
-        {
-            nowP = transform.position;
-        }
+        nowP = transform.position;
+        
         //Debug.Log($"{nowP}");
         goEnemy = GameObject.FindWithTag("Enemy");
 
@@ -124,6 +121,7 @@ public class Ammo : MonoBehaviour
 
     public float GetStun()
     {
+        Debug.Log($"{stun}");
         return stun;
     }
 
