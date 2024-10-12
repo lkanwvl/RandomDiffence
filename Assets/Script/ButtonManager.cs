@@ -11,9 +11,16 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] List<Button> listBtnsBoss;
     [SerializeField] List<Button> listBtnsTable;
     [SerializeField] List<GameObject> listGameobjact;
+    
+    
 
     private void Awake()
     {
+        int count = listGameobjact.Count;
+        for(int i = 0; i < count; i++)
+        {
+            goActive(listGameobjact[i], false);
+        }
         initButten();
         initInsideBtnNor();
         initInsideBtnLeg();
@@ -24,18 +31,34 @@ public class ButtonManager : MonoBehaviour
     void initInsideBtnNor()
     {
         listBtnsNor[6].onClick.AddListener(() => { goActive(listGameobjact[0], false);});
+        listBtnsNor[6].onClick.AddListener(() => { listBtns[0].interactable = true;});
+        listBtnsNor[6].onClick.AddListener(() => { listBtns[1].interactable = true;});
+        listBtnsNor[6].onClick.AddListener(() => { listBtns[2].interactable = true;});
+        listBtnsNor[6].onClick.AddListener(() => { listBtns[3].interactable = true;});
     }
     void initInsideBtnLeg()
     {
-        listBtnsNor[6].onClick.AddListener(() => { goActive(listGameobjact[1], false);});
+        listBtnsLeg[6].onClick.AddListener(() => { goActive(listGameobjact[1], false);});
+        listBtnsLeg[6].onClick.AddListener(() => { listBtns[0].interactable = true;});
+        listBtnsLeg[6].onClick.AddListener(() => { listBtns[1].interactable = true;});
+        listBtnsLeg[6].onClick.AddListener(() => { listBtns[2].interactable = true;});
+        listBtnsLeg[6].onClick.AddListener(() => { listBtns[3].interactable = true;});
     }
     void initInsideBtnBoss()
     {
-        listBtnsNor[6].onClick.AddListener(() => { goActive(listGameobjact[2], false);});
+        listBtnsBoss[6].onClick.AddListener(() => { goActive(listGameobjact[2], false);}); 
+        listBtnsBoss[6].onClick.AddListener(() => { listBtns[0].interactable = true; });
+        listBtnsBoss[6].onClick.AddListener(() => { listBtns[1].interactable = true; });
+        listBtnsBoss[6].onClick.AddListener(() => { listBtns[2].interactable = true; });
+        listBtnsBoss[6].onClick.AddListener(() => { listBtns[3].interactable = true; });
     }
     void initInsideBtnTable()
     {
-        listBtnsNor[6].onClick.AddListener(() => { goActive(listGameobjact[3], false);});
+        listBtnsTable[6].onClick.AddListener(() => { goActive(listGameobjact[3], false);});
+        listBtnsTable[6].onClick.AddListener(() => { listBtns[0].interactable = true; });
+        listBtnsTable[6].onClick.AddListener(() => { listBtns[1].interactable = true; });
+        listBtnsTable[6].onClick.AddListener(() => { listBtns[2].interactable = true; });
+        listBtnsTable[6].onClick.AddListener(() => { listBtns[3].interactable = true; });
     }
 
     void initButten()
@@ -66,6 +89,16 @@ public class ButtonManager : MonoBehaviour
     
     void Update()
     {
-        
+        int count = listGameobjact.Count;
+        for (int i = 0; i < count; i++)
+        {
+            if (listGameobjact[i].activeSelf == true)
+            {
+                listBtns[0].interactable = false;
+                listBtns[1].interactable = false;
+                listBtns[2].interactable = false;
+                listBtns[3].interactable = false;
+            }
+        }
     }
 }
