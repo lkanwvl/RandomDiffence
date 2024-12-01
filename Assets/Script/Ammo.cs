@@ -17,7 +17,7 @@ public class Ammo : MonoBehaviour
     int multi;
     [SerializeField] GameObject stunBoom;
     Vector3 nowP = new Vector3(0, 0, 0);
-
+    
     private void Start()
     {
         

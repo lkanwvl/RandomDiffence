@@ -14,3 +14,15 @@ public enum GameTag
     Ammo,
     Stun,
 }
+
+public enum eCharacter //∆—≈‰∏Æ ∆–≈œ
+{
+    Plyaer,
+    Monster,
+}
+
+public enum eSkill
+{
+    Normal_Near,
+
+}
