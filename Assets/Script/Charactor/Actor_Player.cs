@@ -6,30 +6,43 @@ using UnityEngine;
 public class Actor_Player : Actor
 {
     Rigidbody rigid;
-    Skill skill;
+    Skill_Near skillNear;
+    float gravity = -9.81f;
     [SerializeField] float speed;
+    [SerializeField] GameObject skillMgr;
+    [SerializeField] Transform playerCam;
     Vector3 MoveDir = Vector3.zero;
     void Awake()
     {
-        skill = GetComponent<Skill>();
         rigid = GetComponent<Rigidbody>();
+        skillNear = skillMgr.GetComponent<Skill_Near>();
     }
     private void Update()
     {
         Move();
         if(Input.GetMouseButtonDown(0))
         {
-            skill.SkillPlay(eSkill.Normal_Near);
+            skillNear.SkillPlay(eSkill.Normal_Near);
         }
     }
     void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+
+        float vertical = Input.GetAxisRaw("Vertical");
+
         MoveDir = new Vector3(horizontal, 0f, vertical);
 
-        if (MoveDir.magnitude > 1f)
-            MoveDir = MoveDir.normalized;
-    }
+        MoveDir = MoveDir.normalized;
 
+        Vector3 cameraForward = playerCam.forward;
+        Vector3 cameraRight = playerCam.right;
+
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+
+        MoveDir = MoveDir.z * cameraForward + MoveDir.x * cameraRight;
+
+        transform.Translate(MoveDir * speed * Time.deltaTime, Space.World);
+    }
 }

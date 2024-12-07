@@ -5,6 +5,10 @@ using UnityEngine;
 
 public partial class Actor : MonoBehaviour
 {
+    private void Awake()
+    {
+        
+    }
     private void Update()
     {
 
