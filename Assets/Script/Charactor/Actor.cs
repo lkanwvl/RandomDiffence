@@ -5,9 +5,6 @@ using UnityEngine;
 
 public partial class Actor : MonoBehaviour
 {
-    public void Awake()
-    {
-    }
     private void Update()
     {
 

@@ -9,7 +9,7 @@ public class Actor_Player : Actor
     Skill skill;
     [SerializeField] float speed;
     Vector3 MoveDir = Vector3.zero;
-    private void Awake()
+    void Awake()
     {
         skill = GetComponent<Skill>();
         rigid = GetComponent<Rigidbody>();
@@ -24,9 +24,12 @@ public class Actor_Player : Actor
     }
     void Move()
     {
-        MoveDir.x = Input.GetAxisRaw("Horizontal");
-        MoveDir.z = Input.GetAxisRaw("Vertical");
-        rigid.velocity = MoveDir * speed;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        MoveDir = new Vector3(horizontal, 0f, vertical);
+
+        if (MoveDir.magnitude > 1f)
+            MoveDir = MoveDir.normalized;
     }
 
 }
