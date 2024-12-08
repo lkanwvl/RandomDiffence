@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1930547680779665789}
+  - component: {fileID: 561017500232426183}
   - component: {fileID: 3870310978062600240}
   - component: {fileID: 1608782108938724654}
   - component: {fileID: 5548560986962757831}
   - component: {fileID: 5944590432844218413}
-  - component: {fileID: 561017500232426183}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,8 +36,26 @@ Transform:
   - {fileID: 1643446779210121748}
   - {fileID: 6768396808248446855}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561017500232426183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277680756842644637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aad5582613c498428478b2ef57a57ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamina: 0
+  staminaSlider: {fileID: 0}
+  staminaSliderBack: {fileID: 0}
+  speed: 30
+  skillMgr: {fileID: 0}
+  playerCam: {fileID: 1643446779210121748}
 --- !u!33 &3870310978062600240
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,21 +156,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &561017500232426183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277680756842644637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aad5582613c498428478b2ef57a57ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  skillMgr: {fileID: 0}
-  playerCam: {fileID: 1643446779210121748}
 --- !u!1 &1857880271872889847
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +199,7 @@ Camera:
   m_GameObject: {fileID: 1857880271872889847}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
