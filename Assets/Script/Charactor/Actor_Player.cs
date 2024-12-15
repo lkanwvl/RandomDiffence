@@ -4,9 +4,7 @@ using UnityEngine.UI;
 
 public class Actor_Player : Actor
 {
-    Rigidbody rigid;
     Skill_Near skillNear;
-    float gravity = -9.81f;
     [SerializeField] float stamina;
     [SerializeField] Slider staminaSlider;
     [SerializeField] Slider staminaSliderBack;
@@ -18,7 +16,6 @@ public class Actor_Player : Actor
     float playerSpeed;
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
         skillNear = skillMgr.GetComponent<Skill_Near>();
     }
 
