@@ -26,3 +26,9 @@ public enum eSkill
     Normal_Near,
 
 }
+
+public enum eEnemy
+{
+    Idle,
+
+}

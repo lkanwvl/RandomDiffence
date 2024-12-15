@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -9,6 +10,21 @@ public class Actor_Enemy : Actor
     [SerializeField] float speed;
     void Update()
     {
+
+    }
+
+    void move()
+    {
         transform.Translate(moveDir * Time.deltaTime * speed, Space.World);
+    }
+
+    void ai(Enum _e)
+    {
+        switch(_e)
+        {
+            case eEnemy.Idle :
+                move();
+            break;
+        }
     }
 }

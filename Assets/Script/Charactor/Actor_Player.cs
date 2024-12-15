@@ -83,6 +83,10 @@ public class Actor_Player : Actor
         {
             return;
         }
+        if(_bool == true && staminaTime <= 0)
+        {
+            
+        }
     }
 
     private void staminaTimer(bool _timer, bool _reset)
