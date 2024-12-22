@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,5 +13,10 @@ public partial class Actor : MonoBehaviour
     private void Update()
     {
 
+    }
+
+    public Enum PlayCharactor(Enum _charictor)
+    {
+        return _charictor;
     }
 }

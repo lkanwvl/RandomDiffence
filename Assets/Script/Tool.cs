@@ -24,11 +24,11 @@ public enum eCharacter //∆—≈‰∏Æ ∆–≈œ
 public enum eSkill
 {
     Normal_Near,
-
+    Normal_Far
 }
 
 public enum eEnemy
 {
     Idle,
-
+    Attack,
 }

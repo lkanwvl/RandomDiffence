@@ -1,18 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_Far : MonoBehaviour
+public class Skill_Far : Skill
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void SkillPlay(Enum _e)
     {
-        
-    }
+        switch (_e)
+        {
+            case eSkill.Normal_Far:
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                break;
+        }
     }
 }

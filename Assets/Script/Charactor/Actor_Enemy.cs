@@ -8,6 +8,12 @@ public class Actor_Enemy : Actor
 {
     Vector3 moveDir = new Vector3 (0, 0, -1);
     [SerializeField] float speed;
+
+
+    private void Awake()
+    {
+       PlayCharactor(eCharacter.Monster);
+    }
     void Update()
     {
 
@@ -25,6 +31,12 @@ public class Actor_Enemy : Actor
             case eEnemy.Idle :
                 move();
             break;
+
+            case eEnemy.Attack : 
+
+            break;
         }
     }
+
+
 }
